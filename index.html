@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SciSpark - Science Resource Hub</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #3a86ff;
+            --secondary-color: #8338ec;
+            --dark-color: #212529;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .navbar {
+            background-color: var(--dark-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link {
+            color: var(--light-color) !important;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            color: var(--dark-color);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .category-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .resource-card {
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .featured-card {
+            border: none;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+        }
+        
+        .featured-card .card-title {
+            color: white;
+        }
+        
+        .about-section {
+            background-color: #f8f9fa;
+        }
+        
+        .contact-info i {
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #2a75e6;
+            border-color: #2a75e6;
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">SciSpark</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#categories-section">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Ignite Your Scientific Curiosity</h1>
+                    <p class="lead mb-4">Explore cutting-edge discoveries, engage with interactive content, and connect with a global community of science enthusiasts.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#categories-section" class="btn btn-light btn-lg">Explore Resources</a>
+                        <a href="#featured" class="btn btn-outline-light btn-lg">Featured Content</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-end">
+                    <img src="./media/h1.png" alt="Science Illustration" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title">Welcome to SciSpark</h2>
+                    <p class="lead">SciSpark is a dynamic, interactive Science Resource Hub where learners of all ages can explore the wonders of science. Our platform brings together cutting-edge discoveries, multimedia content, and a vibrant community of science enthusiasts.</p>
+                    <p>Whether you're a student, educator, or simply curious about the world around you, SciSpark offers resources to fuel your scientific journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section id="featured" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Featured Content</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+					<div class="card featured-card h-100">
+					    
+					    <img src="./media/f1.png" 
+					         class="card-img-top" 
+					         alt="Science experiment illustration"
+					         style="height: 200px; object-fit: cover;">
+
+					    <div class="card-body">
+					        <div class="d-flex align-items-center mb-3">
+					            <h5 class="card-title mb-0 text-dark">Scientists turn lead into gold for 1st time</h5>
+					        </div>
+					        <div>					        
+						        <p class="card-text text-dark">"In a breakthrough that would make medieval alchemists envious, scientists at Europe's Large Hadron Collider have successfully transformed lead into gold, producing 89,000 atoms per second."</p>
+						        <a href="https://abcnews.go.com/Technology/scientists-turn-lead-gold-1st-time-split/story?id=121762241" class="btn btn-sm btn-primary" target="blank">Read more</a>
+					    	</div>
+
+
+					    </div>
+					</div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card featured-card h-100">
+
+                    	 <img src="./media/f2.jpg" 
+					         class="card-img-top" 
+					         alt="Science experiment illustration"
+					         style="height: 200px; object-fit: cover;">
+
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <h5 class="card-title mb-0 text-dark">Gene-Editing Breakthrough</h5>
+                            </div>
+                            <div>
+	                            <p class="card-text text-dark">A research team has developed and safely delivered a personalized gene editing therapy to treat an infant with a life-threatening, incurable genetic disease. The infant, who was diagnosed with the rare condition carbamoyl phosphate synthetase 1 (CPS1) deficiency shortly after birth, has responded positively to the treatment</p>
+	                            <a href="https://www.iflscience.com/infant-becomes-first-human-ever-to-receive-personalized-crispr-gene-therapy-treatment-79239" class="btn btn-sm btn-primary" target="blank">Read more</a>
+	                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card featured-card h-100">
+
+                    	 <img src="./media/f3.jpg" 
+					         class="card-img-top" 
+					         alt="Science experiment illustration"
+					         style="height: 200px; object-fit: cover;">
+
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <h5 class="card-title mb-0 text-dark">Scientists track down mutation that makes orange cats orange</h5>
+                            </div>
+                            <div>
+	                            <p class="card-text text-dark">Many an orange cat-affiliated human will vouch for their cat's, let's say, specialness. But now scientists have confirmed that there is, in fact, something unique about ginger-hued domestic felines. In a new study, researchers have discovered the long-posited but elusive genetic mutation that makes orange cats orange -- and it appears to occur in no other mammal.</p>
+	                            <a href="https://timesofindia.indiatimes.com/etimes/trending/scientists-have-finally-solved-the-100-year-old-mystery-of-why-some-cats-are-orange/articleshow/121219468.cms" class="btn btn-sm btn-primary" target="blank">Read more</a>
+	                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories-section" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Exploration Zones</h2>
+            <p class="text-center mb-5">Dive into our organized sections covering all major scientific disciplines and emerging technologies.</p>
+            
+            <div id="categories" class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-meteor category-icon"></i>
+                            <h4 class="card-title">Astronomy</h4>
+                            <p class="card-text">Explore the cosmos with our interactive star maps, planetarium shows, and latest space mission updates.</p>
+                            <a href="#resources" class="btn btn-outline-primary">View Resources</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-atom category-icon"></i>
+                            <h4 class="card-title">Physics</h4>
+                            <p class="card-text">From quantum mechanics to relativity, discover simulations and experiments that bring physics to life.</p>
+                            <a href="#resources" class="btn btn-outline-primary">View Resources</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-vial category-icon"></i>
+                            <h4 class="card-title">Chemistry</h4>
+                            <p class="card-text">Interactive periodic tables, reaction simulations, and safe home chemistry experiments.</p>
+                            <a href="#resources" class="btn btn-outline-primary">View Resources</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-dna category-icon"></i>
+                            <h4 class="card-title">Biology</h4>
+                            <p class="card-text">Virtual dissections, genetic simulations, and explorations of ecosystems around the world.</p>
+                            <a href="#resources" class="btn btn-outline-primary">View Resources</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-mountain category-icon"></i>
+                            <h4 class="card-title">Earth Science</h4>
+                            <p class="card-text">Interactive geology models, weather simulations, and climate change visualizations.</p>
+                            <a href="#resources" class="btn btn-outline-primary">View Resources</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 text-center">
+                        <div class="card-body">
+                            <i class="fas fa-robot category-icon"></i>
+                            <h4 class="card-title">Emerging Tech</h4>
+                            <p class="card-text">AI, nanotechnology, and other cutting-edge technologies explained through interactive demos.</p>
+                            <a href="#resources" class="btn btn-outline-primary">View Resources</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="resources" class="mt-5">
+                <h3 class="text-center mb-4">Sample Resources</h3>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="card resource-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Virtual Quantum Physics Lab</h5>
+                                <p class="card-text">Experience the strange world of quantum mechanics through our interactive simulation that lets you run double-slit experiments and observe wave-particle duality.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-primary">Physics</span>
+                                    <div>
+                                        <span class="text-muted me-2"><i class="fas fa-clock"></i> 30 min</span>
+                                        <span class="text-muted"><i class="fas fa-star"></i> 4.8</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card resource-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">DNA Extraction at Home</h5>
+                                <p class="card-text">Step-by-step guide to extracting DNA from strawberries using common household items, with explanations of the biological processes involved.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-success">Biology</span>
+                                    <div>
+                                        <span class="text-muted me-2"><i class="fas fa-clock"></i> 45 min</span>
+                                        <span class="text-muted"><i class="fas fa-star"></i> 4.9</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card resource-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Interactive Periodic Table</h5>
+                                <p class="card-text">Explore elements with detailed information, electron configurations, and real-world applications in our comprehensive periodic table tool.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-warning text-dark">Chemistry</span>
+                                    <div>
+                                        <span class="text-muted me-2"><i class="fas fa-clock"></i> Self-paced</span>
+                                        <span class="text-muted"><i class="fas fa-star"></i> 4.7</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card resource-card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Mars Rover Simulator</h5>
+                                <p class="card-text">Program a virtual Mars rover to navigate the red planet's terrain while learning about planetary geology and space exploration.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-info">Astronomy</span>
+                                    <div>
+                                        <span class="text-muted me-2"><i class="fas fa-clock"></i> 1 hour</span>
+                                        <span class="text-muted"><i class="fas fa-star"></i> 4.9</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-primary">View All Resources</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 about-section">
+        <div class="container">
+            <h2 class="section-title text-center">About SciSpark</h2>
+            
+            <div id="mission" class="row mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title text-center mb-4">Our Mission</h3>
+                            <p class="card-text">At SciSpark, we believe that science should be accessible, engaging, and inspiring for everyone. Our mission is to break down barriers to scientific literacy by providing high-quality, interactive resources that make learning science an exciting adventure.</p>
+                            <p>We're committed to:</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-atom"></i> Democratizing access to scientific knowledge</li>
+                                <li><i class="fas fa-atom"></i> Fostering curiosity and critical thinking</li>
+                                <li><i class="fas fa-atom"></i> Connecting learners with real-world scientific research</li>
+                                <li><i class="fas fa-atom"></i> Promoting STEM education for all ages and backgrounds</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-users fa-3x mb-3 text-primary"></i>
+                            <h4>Community</h4>
+                            <p>Join over 250,000 science enthusiasts in our global learning community.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-book-open fa-3x mb-3 text-primary"></i>
+                            <h4>Resources</h4>
+                            <p>Access to 1,200+ interactive simulations, experiments, and learning modules.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <i class="fas fa-globe fa-3x mb-3 text-primary"></i>
+                            <h4>Impact</h4>
+                            <p>Contributing to 15+ citizen science projects with real scientific value.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <h3 class="card-title mb-4">Contact Information</h3>
+                            <div class="contact-info">
+                                <p><i class="fas fa-map-marker-alt"></i> 65 Ortigas Avenue, Taytay Rizal</p>
+                                <p><i class="fas fa-phone"></i> (02) 866-1738</p>
+                                <p><i class="fas fa-envelope"></i> info@scispark.org</p>
+                                <p><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 5:00 PM</p>
+                            </div>
+                            <hr>
+                            <h4 class="mb-3">Follow Us</h4>
+                            <div class="social-icons">
+								<!-- Social Media Links -->
+								<a href="https://twitter.com/" target="blank"><i class="fab fa-twitter text-dark"></i></a>
+								<a href="https://facebook.com/" target="blank"><i class="fab fa-facebook text-dark"></i></a>
+								<a href="https://instagram.com/" target="blank"><i class="fab fa-instagram text-dark"></i></a>
+								<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="blank"><i class="fab fa-youtube text-dark"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+                            <h3 class="card-title mb-4">Send Us a Message</h3>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" id="subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>SciSpark</h5>
+                    <p>Your gateway to scientific discovery and learning.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white">Home</a></li>
+                        <li><a href="#categories-section" class="text-white">Categories</a></li>
+                        <li><a href="#about" class="text-white">About</a></li>
+                        <li><a href="#contact" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-white">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 SciSpark. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Made with <i class="fas fa-heart text-danger"></i> for science education</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Activate scrollspy
+        var scrollSpy = new bootstrap.ScrollSpy(document.body, {
+            target: '.navbar'
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add shadow to navbar on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
